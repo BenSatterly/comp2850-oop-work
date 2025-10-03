@@ -1,6 +1,6 @@
 fun variablesConstants(){
     var num = 12
-    println(val)
+    println(num)
     var num = 6
-    println(val)
+    println(num)
 }
