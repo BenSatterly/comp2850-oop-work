@@ -17,7 +17,7 @@ fun isValid(word: String): Boolean{
 fun readWordList(filename: String): MutableList<String>{
     // Reads Wordle target words from the specified file, returning them as a list of strings
     var words: MutableList<String> = mutableListOf()
-    File("../../../data/$filename").forEachLine {words.add(it.toString())}
+    File("data/$filename").forEachLine {words.add(it.toString())}
     return words
 }
 
