@@ -3,7 +3,8 @@ import kotlin.system.exitProcess
 fun main(){
     val words = readWordList("words.txt")
     val randomWord = pickRandomWord(words)
-    
+    const val correctLetterMatch = 1
+
     var attemptNum = 0
     while (attemptNum <= 10){
         var guess = obtainGuess(attemptNum)
@@ -12,7 +13,7 @@ fun main(){
         var comparisonResult = evaluateGuess(guess, randomWord)
         displayGuess(guess, comparisonResult)
     
-        if (comparisonResult.all {it == 1}){
+        if (comparisonResult.all {it == correctLetterMatch}){
             println("Congratulations! You have successfully guessed the word!")
             exitProcess(0)
         }
