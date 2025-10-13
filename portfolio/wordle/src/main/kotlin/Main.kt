@@ -6,7 +6,9 @@ fun main(){
     const val correctLetterMatch = 1
 
     var attemptNum = 0
-    while (attemptNum <= 10){
+    const val maxGuesses = 10
+
+    while (attemptNum <= maxGuesses){
         var guess = obtainGuess(attemptNum)
         attemptNum++
 
