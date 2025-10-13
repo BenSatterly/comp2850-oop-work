@@ -1,7 +1,8 @@
-// Implement the six required functions here
+// Make neccessary imports (for random and file operations) here
 import java.io.File
 import kotlin.random.Random
-import kotlin.system.exitProcess
+
+// Implament the six required functions here
 
 fun isValid(word: String): Boolean{
     // Returns true if the given word is valid in Wordle (i.e. it consists of exactly 5 letters)
@@ -68,26 +69,4 @@ fun displayGuess(guess: String, matches: List<Int>){
     }
 
     println(guessFeedback)
-}
-
-fun main(){
-    val words = readWordList("words.txt")
-    val randomWord = pickRandomWord(words)
-    
-    var attemptNum = 0
-    while (attemptNum <= 10){
-        var guess = obtainGuess(attemptNum)
-        attemptNum++
-
-        var comparisonResult = evaluateGuess(guess, randomWord)
-        displayGuess(guess, comparisonResult)
-    
-        if (comparisonResult.all {it == 1}){
-            println("Congratulations! You have successfully guessed the word!")
-            exitProcess(0)
-        }
-    }
-    println("Sorry! You've ran out of guesses to guess the correct word! The correct word was $randomWord")
-    exitProcess(0)
-
 }
