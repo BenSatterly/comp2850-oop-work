@@ -4,23 +4,31 @@ import io.kotest.matchers.shouldBe
 
 @Suppress("unused")
 class WordleTest : StringSpec({
-    isValid("TESTS") shouldBe true
-    isValid("NOPE") shouldBe false
-    isValid("YESSIR") shouldBe false
-    isValid("") shouldBe false
 
-    var words = readWordList("words.txt")
-    (pickRandomWord(words)).length shouldBe 5
-    words.contains(pickRandomWord(words)) shouldBe true
+    "Tests for isValid function" {
+        isValid("TESTS") shouldBe true
+        isValid("NOPE") shouldBe false
+        isValid("YESSIR") shouldBe false
+        isValid("") shouldBe false
+    }
 
+    "Randomly picked word should be 5 letters long, and from the list" {
+        val words = readWordList("words.txt")
+        pickRandomWord(words).length shouldBe 5
+        words.contains(pickRandomWord(words)) shouldBe true
+    }
 
-    var words = readWordList("words.txt")
-    val target = pickRandomWord(words)
+    "evaluateGuess function should return the correct comparison with target word" {
+        val words = readWordList("words.txt")
+        val target = pickRandomWord(words)
 
-    evaluateGuess("XXXXX", target) shouldBe [0, 0, 0, 0, 0]
-    evaluateGuess(target, target) shouldBe [1, 1, 1, 1, 1]
+        evaluateGuess("XXXXX", target) shouldBe mutableListOf(0, 0, 0, 0, 0)
+        evaluateGuess(target, target) shouldBe mutableListOf(1, 1, 1, 1, 1)
+    }
 
-    var words = readWordList("words.txt")
-    words::class.simpleName shouldBe "List"
-    words.count()>1 shouldBe true
+    "word list (from input words file) should be a list with multiple elements (words)" {
+        val words = readWordList("words.txt")
+        words::class.simpleName shouldBe "MutableList"
+        (words.count() > 1) shouldBe true
+    }
 })
