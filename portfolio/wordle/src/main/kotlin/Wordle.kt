@@ -4,27 +4,26 @@ import kotlin.random.Random
 
 // Implament the six required functions here
 
-const val Correct_Guess_Length = 5
+const val CORRECT_GUESS_LENGTH = 5
 
-fun isValid(word: String): Boolean{
-
+fun isValid(word: String): Boolean {
     // Returns true if the given word is valid in Wordle (i.e. it consists of exactly 5 letters)
-    if (word.length == correctGuessLength){
+    if (word.length == CORRECT_GUESS_LENGTH) {
         return true
     }
-    else{
+    else {
         return false
     }
 }
 
-fun readWordList(filename: String): MutableList<String>{
+fun readWordList(filename: String): MutableList<String> {
     // Reads Wordle target words from the specified file, returning them as a list of strings
     var words: MutableList<String> = mutableListOf()
-    File("data/$filename").forEachLine {words.add(it.toString())}
-    return words
+    File("data/$filename").forEachLine { words.add(it.toString()) }
+    return words 
 }
 
-fun pickRandomWord(words: MutableList<String>): String{
+fun pickRandomWord(words: MutableList<String>): String {
     var lengthOfList = (words.count() + 1).toInt()
     val randomIndex = Random.nextInt(0, lengthOfList)
     words.removeAt(randomIndex)
@@ -32,10 +31,10 @@ fun pickRandomWord(words: MutableList<String>): String{
     return randomWord
 }
 
-fun obtainGuess(attempt: Int): String{
+fun obtainGuess(attempt: Int): String {
     print("Guess $attempt : ")
     val input = (readLine() ?: "").uppercase()
-    if (isValid(input) == true){
+    if (isValid(input) == true) {
         return input
     }
     else{
@@ -44,13 +43,13 @@ fun obtainGuess(attempt: Int): String{
     }
 }
 
-fun evaluateGuess(guess: String, target: String): List<Int>{
+fun evaluateGuess(guess: String, target: String): List<Int> {
     val target = target.toList()
     val guess = guess.toList()
     var resultingComparison: MutableList<Int> = mutableListOf()
 
     for ((index, value) in guess.withIndex()) {
-        if (value == target.elementAt(index)){
+        if (value == target.elementAt(index)) {
             resultingComparison.add(1)
         }
         else{
@@ -60,10 +59,10 @@ fun evaluateGuess(guess: String, target: String): List<Int>{
     return resultingComparison
 }
 
-fun displayGuess(guess: String, matches: List<Int>){
+fun displayGuess(guess: String, matches: List<Int>) {
     var guessFeedback: MutableList<Char> = mutableListOf()
     for ((index, value) in matches.withIndex()) {
-        if (value == 1){
+        if (value == 1) {
             guessFeedback.add(guess.elementAt(index))
         }
         else {

@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-const val Max_Guesses = 10
+const val MAX_GUESSES = 10
 
 fun main(){
     val words = readWordList("words.txt")
@@ -10,7 +10,7 @@ fun main(){
     var attemptNum = 0
 
 
-    while (attemptNum <= maxGuesses){
+    while (attemptNum <= MAX_GUESSES){
         var guess = obtainGuess(attemptNum)
         attemptNum++
 
