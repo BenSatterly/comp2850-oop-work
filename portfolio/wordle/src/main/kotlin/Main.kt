@@ -2,13 +2,12 @@ import kotlin.system.exitProcess
 
 const val MAX_GUESSES = 10
 
-fun main(){
+fun main() { 
     val words = readWordList("words.txt")
     val randomWord = pickRandomWord(words)
     val correctLetterMatch = 1
 
     var attemptNum = 0
-
 
     while (attemptNum <= MAX_GUESSES) {
         var guess = obtainGuess(attemptNum)
@@ -17,10 +16,10 @@ fun main(){
         var comparisonResult = evaluateGuess(guess, randomWord)
         displayGuess(guess, comparisonResult)
 
-        if (comparisonResult.all {it == correctLetterMatch}) {
+        if (comparisonResult.all {it == correctLetterMatch}) { 
             println("Congratulations! You have successfully guessed the word!")
             exitProcess(0)
-        }
+         }
     }
     println("Sorry! You've ran out of guesses to guess the correct word! The correct word was $randomWord")
     exitProcess(0)
