@@ -10,6 +10,8 @@ class WordleTest : StringSpec({
         isValid("NOPE") shouldBe false
         isValid("YESSIR") shouldBe false
         isValid("") shouldBe false
+        isValid("12345") shouldBe false
+        isValid("Tr43l") shouldBe false
     }
 
     "pickRandomWord - Randomly picked word should be 5 letters long, and from the list" {
