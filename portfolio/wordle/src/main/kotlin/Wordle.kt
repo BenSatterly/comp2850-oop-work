@@ -4,8 +4,10 @@ import kotlin.random.Random
 
 // Implament the six required functions here
 
+const val correctGuessLength = 5
+
 fun isValid(word: String): Boolean{
-    const val correctGuessLength = 5
+
     // Returns true if the given word is valid in Wordle (i.e. it consists of exactly 5 letters)
     if (word.length == correctGuessLength){
         return true

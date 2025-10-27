@@ -1,12 +1,14 @@
 import kotlin.system.exitProcess
 
+const val maxGuesses = 10
+
 fun main(){
     val words = readWordList("words.txt")
     val randomWord = pickRandomWord(words)
     const val correctLetterMatch = 1
 
     var attemptNum = 0
-    const val maxGuesses = 10
+
 
     while (attemptNum <= maxGuesses){
         var guess = obtainGuess(attemptNum)
