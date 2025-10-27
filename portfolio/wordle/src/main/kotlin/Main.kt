@@ -7,7 +7,7 @@ fun main() {
     val randomWord = pickRandomWord(words)
     val correctLetterMatch = 1
 
-    var attemptNum = 0
+    var attemptNum = 1
 
     while (attemptNum <= MAX_GUESSES) {
         var guess = obtainGuess(attemptNum)

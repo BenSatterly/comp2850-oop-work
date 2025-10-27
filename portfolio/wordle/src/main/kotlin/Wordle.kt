@@ -8,7 +8,7 @@ const val CORRECT_GUESS_LENGTH = 5
 
 fun isValid(word: String): Boolean {
     // Returns true if the given word is valid in Wordle (i.e. it consists of exactly 5 letters)
-    if (word.length == CORRECT_GUESS_LENGTH) {
+    if (word.length == CORRECT_GUESS_LENGTH) && (word.all() { it.isLetter() } ) {
         return true
     }
     else {
