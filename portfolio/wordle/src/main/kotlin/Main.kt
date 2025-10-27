@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-const val maxGuesses = 10
+const val MaxGuesses = 10
 
 fun main(){
     val words = readWordList("words.txt")
