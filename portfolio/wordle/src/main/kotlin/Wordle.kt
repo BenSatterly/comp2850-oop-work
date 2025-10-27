@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 // Implament the six required functions here
 
-const val CorrectGuessLength = 5
+const val Correct_Guess_Length = 5
 
 fun isValid(word: String): Boolean{
 
