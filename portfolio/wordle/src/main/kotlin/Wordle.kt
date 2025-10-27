@@ -20,7 +20,7 @@ fun readWordList(filename: String): MutableList<String> {
     // Reads Wordle target words from the specified file, returning them as a list of strings
     var words: MutableList<String> = mutableListOf()
     File("data/$filename").forEachLine { words.add(it.toString()) }
-    return words 
+    return words
 }
 
 fun pickRandomWord(words: MutableList<String>): String {
@@ -37,7 +37,7 @@ fun obtainGuess(attempt: Int): String {
     if (isValid(input) == true) {
         return input
     }
-    else{
+    else {
         println("Invalid Guess! Guess should be exactly 5 letters long...")
         return obtainGuess(attempt)
     }
@@ -52,7 +52,7 @@ fun evaluateGuess(guess: String, target: String): List<Int> {
         if (value == target.elementAt(index)) {
             resultingComparison.add(1)
         }
-        else{
+        else {
             resultingComparison.add(0)
         }
     }
